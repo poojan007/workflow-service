@@ -1,0 +1,22 @@
+{"properties": [
+  {
+    "name": "activiti.history.level",
+    "type": "java.lang.String",
+    "description": "A description for 'activiti.history.level'"
+  },
+  {
+    "name": "activiti.db.url",
+    "type": "java.lang.String",
+    "description": "A description for 'activiti.db.url'"
+  },
+  {
+    "name": "activiti.db.username",
+    "type": "java.lang.String",
+    "description": "A description for 'activiti.db.username'"
+  },
+  {
+    "name": "activiti.db.password",
+    "type": "java.lang.String",
+    "description": "A description for 'activiti.db.password'"
+  }
+]}

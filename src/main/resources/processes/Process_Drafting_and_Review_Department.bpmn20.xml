@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="DRD" name="Process DRD" isExecutable="true">
+    <startEvent id="startEvent1"></startEvent>
+    <userTask id="sid-A48B93A6-DBB9-4E50-A385-A0E8E1A8AAA3" name="DRD Chief" activiti:assignee="drd_chief" activiti:formKey="form_apply_loan">
+      <documentation>Receive the case and nominate a prosecutor</documentation>
+      <extensionElements>
+        <modeler:activiti-idm-assignee xmlns:modeler="http://activiti.com/modeler"><![CDATA[true]]></modeler:activiti-idm-assignee>
+        <modeler:assignee-info-email xmlns:modeler="http://activiti.com/modeler"><![CDATA[drdchief@oag.gov.bt]]></modeler:assignee-info-email>
+        <modeler:assignee-info-firstname xmlns:modeler="http://activiti.com/modeler"><![CDATA[DRD]]></modeler:assignee-info-firstname>
+        <modeler:assignee-info-lastname xmlns:modeler="http://activiti.com/modeler"><![CDATA[Chief]]></modeler:assignee-info-lastname>
+        <modeler:initiator-can-complete xmlns:modeler="http://activiti.com/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-9387F160-1F9B-426C-B073-3D3A6E2E8102" sourceRef="startEvent1" targetRef="sid-A48B93A6-DBB9-4E50-A385-A0E8E1A8AAA3"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_DRD">
+    <bpmndi:BPMNPlane bpmnElement="DRD" id="BPMNPlane_DRD">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="150.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-A48B93A6-DBB9-4E50-A385-A0E8E1A8AAA3" id="BPMNShape_sid-A48B93A6-DBB9-4E50-A385-A0E8E1A8AAA3">
+        <omgdc:Bounds height="80.0" width="100.0" x="175.0" y="125.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-9387F160-1F9B-426C-B073-3D3A6E2E8102" id="BPMNEdge_sid-9387F160-1F9B-426C-B073-3D3A6E2E8102">
+        <omgdi:waypoint x="130.0" y="165.0"></omgdi:waypoint>
+        <omgdi:waypoint x="175.0" y="165.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

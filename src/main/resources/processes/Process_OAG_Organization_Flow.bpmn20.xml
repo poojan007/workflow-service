@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="process_oag_organization_flow" name="Process OAG Organization Flow" isExecutable="true">
+    <documentation>This process will serve as the starting point for all the letters sent from other agencies to oag for different services.</documentation>
+    <startEvent id="startEvent1" name="Front Desk">
+      <documentation>Front Desk receives letter and execute letter receipt process</documentation>
+    </startEvent>
+    <userTask id="sid-45F4057B-1B97-4447-96D9-A94EBE2D2F6D" name="Attorney General" activiti:assignee="${assignee}">
+      <documentation>AG reads and identifies nature of work</documentation>
+      <extensionElements>
+        <activiti:taskListener event="create" class="bt.gov.oag.activiti.listeners.OAGTaskListener"></activiti:taskListener>
+        <modeler:initiator-can-complete xmlns:modeler="http://activiti.com/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <callActivity id="sid-D64B890B-4ABE-44D1-8035-9DE4BFD09B7C" name="Initiate Departmental Process" calledElement="process_pld" activiti:inheritVariables="false">
+      <extensionElements>
+        <activiti:in source="assignee" target="assignee"></activiti:in>
+        <activiti:executionListener event="start" expression="${oagExecutionEventListener.initiateDepartmentalProcess(execution)}"></activiti:executionListener>
+      </extensionElements>
+    </callActivity>
+    <sequenceFlow id="sid-124C1CDB-42BF-46C4-9B15-F0D81D471BCD" sourceRef="startEvent1" targetRef="sid-45F4057B-1B97-4447-96D9-A94EBE2D2F6D"></sequenceFlow>
+    <sequenceFlow id="sid-E25559F6-D353-4FA3-AE67-7804A1273673" sourceRef="sid-45F4057B-1B97-4447-96D9-A94EBE2D2F6D" targetRef="sid-D64B890B-4ABE-44D1-8035-9DE4BFD09B7C"></sequenceFlow>
+    <endEvent id="sid-90278E2E-8053-4737-AB8F-FDF95B2EB7D4"></endEvent>
+    <sequenceFlow id="sid-A0036FA9-23E1-43FE-9075-CC3D7EA807A0" sourceRef="sid-D64B890B-4ABE-44D1-8035-9DE4BFD09B7C" targetRef="sid-90278E2E-8053-4737-AB8F-FDF95B2EB7D4"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_process_oag_organization_flow">
+    <bpmndi:BPMNPlane bpmnElement="process_oag_organization_flow" id="BPMNPlane_process_oag_organization_flow">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="255.0" y="100.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-45F4057B-1B97-4447-96D9-A94EBE2D2F6D" id="BPMNShape_sid-45F4057B-1B97-4447-96D9-A94EBE2D2F6D">
+        <omgdc:Bounds height="80.0" width="100.0" x="359.22131872075056" y="75.74720803901437"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-D64B890B-4ABE-44D1-8035-9DE4BFD09B7C" id="BPMNShape_sid-D64B890B-4ABE-44D1-8035-9DE4BFD09B7C">
+        <omgdc:Bounds height="81.49441607802868" width="101.46091803947047" x="525.0" y="75.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-90278E2E-8053-4737-AB8F-FDF95B2EB7D4" id="BPMNShape_sid-90278E2E-8053-4737-AB8F-FDF95B2EB7D4">
+        <omgdc:Bounds height="28.0" width="28.0" x="720.6161927231226" y="101.74720803901437"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-A0036FA9-23E1-43FE-9075-CC3D7EA807A0" id="BPMNEdge_sid-A0036FA9-23E1-43FE-9075-CC3D7EA807A0">
+        <omgdi:waypoint x="626.4609180394705" y="115.74720803901434"></omgdi:waypoint>
+        <omgdi:waypoint x="720.6161927231226" y="115.74720803901437"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-124C1CDB-42BF-46C4-9B15-F0D81D471BCD" id="BPMNEdge_sid-124C1CDB-42BF-46C4-9B15-F0D81D471BCD">
+        <omgdi:waypoint x="284.9994855968105" y="115.12422492131496"></omgdi:waypoint>
+        <omgdi:waypoint x="359.22131872075056" y="115.73892609357608"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-E25559F6-D353-4FA3-AE67-7804A1273673" id="BPMNEdge_sid-E25559F6-D353-4FA3-AE67-7804A1273673">
+        <omgdi:waypoint x="459.22131872075056" y="115.74720803901437"></omgdi:waypoint>
+        <omgdi:waypoint x="525.0" y="115.74720803901434"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
