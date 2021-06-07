@@ -46,6 +46,7 @@ public class TaskInstanceServiceImpl implements TaskInstanceService {
 				taskInstanceDetail.setName(task.getName());
 				taskInstanceDetail.setAssignee(task.getAssignee());
 				taskInstanceDetail.setStartTime(task.getCreateTime());
+				taskInstanceDetail.setFormKey(task.getFormKey());
 				taskInstanceDetail.setProcessDefinitionId(task.getProcessDefinitionId());
 				taskInstanceDetail.setProcessInstanceId(task.getProcessInstanceId());
 				
